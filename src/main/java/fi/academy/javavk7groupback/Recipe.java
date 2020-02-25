@@ -1,4 +1,6 @@
 package fi.academy.javavk7groupback;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -12,10 +14,14 @@ public class Recipe {
     private Integer id;
     @Column(nullable = false)
     private String name;
+    @Column(name = "preparation_time")
     private Integer preparationTime;
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
     private String ingredients;
     @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column (name= "preparation_instructions")
     private String preparationInstructions;
     public Integer getId() {
         return id;
