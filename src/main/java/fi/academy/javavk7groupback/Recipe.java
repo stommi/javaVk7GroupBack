@@ -1,10 +1,12 @@
 package fi.academy.javavk7groupback;
 import javax.persistence.*;
-import static javax.persistence.GenerationType.SEQUENCE;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
 @Entity
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = SEQUENCE, generator = "recipe_recipe_id_seq")
+    @GeneratedValue(strategy = IDENTITY, generator = "recipe_recipe_id_seq")
     @SequenceGenerator(name = "recipe_recipe_id_seq",sequenceName = "recipe_recipe_id_seq",allocationSize = 1)
     @Column(unique = true, nullable = false)
     private Integer id;
