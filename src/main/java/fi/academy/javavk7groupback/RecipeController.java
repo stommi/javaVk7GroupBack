@@ -11,8 +11,8 @@ public class RecipeController {
     @Autowired
     private RecipeRepository rr;
 
-    @GetMapping ("")
-    private List<Recipe> getAllRecipes(){
+    @GetMapping ("/recipes/")
+    private Iterable<Recipe> getAllRecipes(){
         return rr.findAll();
     }
 
