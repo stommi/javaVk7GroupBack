@@ -1,0 +1,1 @@
+INSERT INTO recipe (ingredients, name, preparation_instructions, preparation_time) VALUES ('jauhelihaa 500 g','lihapullat', 'paista', 30)
