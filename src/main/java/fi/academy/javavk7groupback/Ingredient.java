@@ -15,7 +15,7 @@ public class Ingredient {
     @Column(unique = true, nullable = false)
     private Integer id;
     private String name;
-    private Integer amout;
+    private Integer amount;
     private String unit;
     @ManyToOne
     @JoinColumn(name = "recipe_fk")
@@ -37,12 +37,12 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Integer getAmout() {
-        return amout;
+    public Integer getAmount() {
+        return amount;
     }
 
-    public void setAmout(Integer amout) {
-        this.amout = amout;
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public String getUnit() {

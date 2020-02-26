@@ -6,8 +6,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
-    @Query("SELECT r FROM Recipe r")
+    @Query("SELECT i FROM Recipe r JOIN Ingredient i on i.recipe.id = r.id")
     Iterable<Recipe> getFullRecipes();
 }
 
+
+//    SELECT recipe.name, preparation_instructions, preparation_time, ingredient.name,
+//        ingredient.amount, ingredient.unit FROM recipe JOIN ingredient ON ingredient.recipe_fk = recipe.id;
 
