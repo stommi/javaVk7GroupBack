@@ -9,3 +9,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
     @Query("SELECT r FROM Recipe r")
     Iterable<Recipe> getFullRecipes();
 }
+
+
