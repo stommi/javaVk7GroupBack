@@ -37,4 +37,9 @@ public class RecipeController {
         rr.save(recipe);
     }
 
+    @GetMapping("/recipes/fullrecipes")
+    public Iterable<Recipe> getAllFullRecipes() {
+        return rr.getFullRecipes();
+    }
+
 }

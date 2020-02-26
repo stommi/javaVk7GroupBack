@@ -24,6 +24,35 @@ public class Recipe {
     @Column (name= "preparation_instructions")
     private String preparationInstructions;
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPreparationTime() {
+        return preparationTime;
+    }
+
+    public void setPreparationTime(Integer preparationTime) {
+        this.preparationTime = preparationTime;
+    }
+
+    public String getPreparationInstructions() {
+        return preparationInstructions;
+    }
+
+    public void setPreparationInstructions(String preparationInstructions) {
+        this.preparationInstructions = preparationInstructions;
+    }
 }
