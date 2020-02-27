@@ -1,5 +1,6 @@
 package fi.academy.javavk7groupback;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,6 +72,16 @@ public class RecipeController {
     @GetMapping("/ingredientsbycode{koodi}")
     public Iterable<Recipe> getIngredientsWithCode(@RequestParam(name="koodi", required = true) Integer koodi) {
         return rr.getIngredientsByCode(koodi);
+    }
+
+    @PostMapping("/ingredientlist")
+    public void postIngredientList(@RequestBody Ingredient[] ingredientList){
+        List<Recipe> list = rr.findAllByIdNotNullOrderByIdDesc();
+        Recipe last = list.get(0);
+        for(Ingredient i : ingredientList){
+            i.setRecipe(last);
+            ir.save(i);
+        }
     }
 
 
