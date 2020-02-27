@@ -68,6 +68,11 @@ public class RecipeController {
         return ir.findById(id);
     }
 
+    @GetMapping("/ingredientsbycode{koodi}")
+    public Iterable<Recipe> getIngredientsWithCode(@RequestParam(name="koodi", required = true) Integer koodi) {
+        return rr.getIngredientsByCode(koodi);
+    }
+
 
 
 
