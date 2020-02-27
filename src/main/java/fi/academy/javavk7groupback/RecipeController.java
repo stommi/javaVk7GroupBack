@@ -14,6 +14,8 @@ import java.util.Optional;
 public class RecipeController {
     @Autowired
     private RecipeRepository rr;
+    @Autowired
+    private IngredientRepository ir;
 
     @GetMapping ("/recipes")
     private Iterable<Recipe> getAllRecipes(){
@@ -40,5 +42,35 @@ public class RecipeController {
     public Iterable<Recipe> getAllFullRecipes() {
         return rr.getFullRecipes();
     }
+
+    @GetMapping("/ingredients")
+    private Iterable<Ingredient> getAllIngredients(){
+        return ir.findAll();
+    }
+
+    @DeleteMapping("/ingredients/{id}")
+    public void deleteIngredientWithId (@PathVariable(name="id", required = true) Integer id) {
+        ir.deleteById(id);
+    }
+
+    @PostMapping("/ingredients")
+    public void postIngredient(@RequestBody Ingredient ingredient) {
+        ir.save(ingredient);
+    }
+
+    @PutMapping("/ingredients/{id}")
+    public void putIngredientWithId(@PathVariable(name="id", required = true) Integer id, @RequestBody Ingredient ingredient) {
+        ir.save(ingredient);
+    }
+
+    @GetMapping("/ingredients/{id}")
+    public Optional<Ingredient> getIngredientsWithId(@PathVariable(name="id", required = true) Integer id) {
+        return ir.findById(id);
+    }
+
+
+
+
+
 
 }
